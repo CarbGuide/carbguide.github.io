@@ -33,7 +33,6 @@ h1 {
     color: #111111;
 }
 
-/* Highlight the linked fields */
 .connected-fields {
     border: 2px dashed #111111;
     padding: 15px;
@@ -47,10 +46,6 @@ h1 {
     font-weight: 450;
 }
 
-/* Simple suggestion box styling */
-/* Existing Styles */
-
-/* Simple suggestion box styling */
 #suggestionBox {
     display: none; /* hidden until we have matches */
     position: absolute; /* Ensure it's absolutely positioned */
@@ -67,7 +62,6 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Adjust list-group-item styles */
 #suggestionBox .list-group-item {
     cursor: pointer;
 }
@@ -75,8 +69,6 @@ h1 {
 #suggestionBox .list-group-item:hover {
     background-color: #e9ecef;
 }
-
-/* Category selectors hidden initially handled by Bootstrap's d-none class */
 
 .fade-in {
     opacity: 0;
@@ -89,13 +81,10 @@ h1 {
     transform: translateY(0);
 }
 
-/* Display area for carb unit size */
 #carbUnitDisplay {
     font-size: 1em;
     color: #111111;
 }
-
-/* Footer Styles */
 
 .footer a {
     display: flex;
@@ -118,28 +107,20 @@ h1 {
     margin-right: 8px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 767px) {
     .footer .col-lg-3 {
         margin-bottom: 20px;
     }
 }
 
-/* Custom Patreon Logo Styling */
 .patreon-logo {
-    width: 24px; /* Adjust the width as needed */
+    width: 24px; 
     height: auto;
-    fill: #28a745; /* Optional: Set fill color to match Patreon branding */
+    fill: #28a745; 
 }
 
-/* Ensure SVG scales correctly within the link */
-.footer a.d-flex align-items-center svg {
-    /* If additional styling is needed, add here */
-}
-
-/* Optional: Adjust spacing if necessary */
 .me-2 {
-    margin-right: 0.5rem !important; /* Ensures consistent spacing */
+    margin-right: 0.5rem !important;
 }
 
 input::-webkit-outer-spin-button,
