@@ -1,45 +1,57 @@
-// -----------------------------
-//        FOOD DATABASE
-// -----------------------------
-// The food database is now loaded from table.csv via fetch
+// script.js
 
-// -----------------------------
-//      CARB UNIT SIZE
-// -----------------------------
-let carbUnitSize = 10; // Default value
-
-// -----------------------------
-//   INITIALIZE CATEGORY SELECT
-// -----------------------------
-document.addEventListener("DOMContentLoaded", function () {
-    loadFoodDatabase();
-    displayCarbUnit();
-    // Prevent non-numeric input in number fields
-    preventNonNumericInput();
-});
-
-// Variable to store food database
 let foodDatabase = [];
+let categoriesSlovak = new Set();
 
-// Function to load food database from CSV
+// Initialize carbUnitSize (assuming a default value)
+let carbUnitSize = 10;
+
+// Load the food database from the CSV file
 function loadFoodDatabase() {
     fetch('table.csv')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
         .then(data => {
+            console.log('CSV Data Loaded Successfully');
             const lines = data.trim().split('\n');
-            const headers = lines[0].split(',');
+            const headers = lines[0].split(',').map(header => header.trim());
+
+            // Validate headers
+            const expectedHeaders = ["nameSlovak", "categorySlovak", "nameEnglish", "categoryEnglish", "carbsPer100g"];
+            const missingHeaders = expectedHeaders.filter(header => !headers.includes(header));
+            if (missingHeaders.length > 0) {
+                throw new Error('Missing headers in CSV: ' + missingHeaders.join(', '));
+            }
+
+            console.log('Headers:', headers);
+
             for (let i = 1; i < lines.length; i++) {
-                const currentLine = lines[i].split(',');
+                const currentLine = splitCSVLine(lines[i]);
                 if (currentLine.length === headers.length) {
                     let food = {};
                     headers.forEach((header, index) => {
-                        food[header.trim()] = currentLine[index].trim();
+                        food[header] = currentLine[index].trim();
                     });
                     // Convert carbsPer100g to number
                     food.carbsPer100g = parseFloat(food.carbsPer100g);
+                    if (isNaN(food.carbsPer100g)) {
+                        console.warn(`Invalid carbsPer100g for item "${food.nameSlovak}" at line ${i + 1}. Setting to 0.`);
+                        food.carbsPer100g = 0;
+                    }
+                    // Populate categories set
+                    categoriesSlovak.add(food.categorySlovak);
+                    // Add to database
                     foodDatabase.push(food);
+                    console.log(`Loaded Food Item:`, food);
+                } else {
+                    console.warn(`Skipping line ${i + 1}: Incorrect number of columns.`);
                 }
             }
+            console.log('All Food Items Loaded:', foodDatabase);
             populateCategories();
         })
         .catch(error => {
@@ -47,11 +59,30 @@ function loadFoodDatabase() {
         });
 }
 
+// Helper function to split CSV lines, handling commas inside quotes
+function splitCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+
+    for (let char of line) {
+        if (char === '"' ) {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            result.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    result.push(current);
+    return result;
+}
+
+// Populate the category selector with Slovak categories
 function populateCategories() {
     const categorySelect = document.getElementById("categorySelect");
-    const categories = [...new Set(foodDatabase.map(food => food.category))].sort();
-
-    categories.forEach(category => {
+    categoriesSlovak.forEach(category => {
         const option = document.createElement("option");
         option.value = category;
         option.textContent = category;
@@ -59,90 +90,115 @@ function populateCategories() {
     });
 }
 
-// -----------------------------
-//   POPULATE ITEM SELECTOR
-// -----------------------------
+// Populate items based on selected category
 function populateItems() {
     const category = document.getElementById("categorySelect").value;
     const itemSelect = document.getElementById("itemSelect");
-    itemSelect.innerHTML = '<option value="">-- Vyberte položku --</option>'; // Reset items
+    itemSelect.innerHTML = '<option value="">-- Vyberte položku --</option>';
 
-    if (!category) return;
+    if (category === "") return;
 
-    const filteredItems = foodDatabase.filter(food => food.category === category).sort((a, b) => a.name.localeCompare(b.name));
-
-    filteredItems.forEach(food => {
+    const filteredFoods = foodDatabase.filter(food => food.categorySlovak === category);
+    filteredFoods.forEach(food => {
         const option = document.createElement("option");
-        option.value = food.name;
-        option.textContent = food.name;
+        option.value = food.nameSlovak;
+        option.textContent = food.nameSlovak;
         itemSelect.appendChild(option);
     });
 }
 
-// -----------------------------
-//   SELECT ITEM FROM DROPDOWN
-// -----------------------------
+// Handle item selection from dropdown
 function selectItemFromDropdown() {
-    const selectedItem = document.getElementById("itemSelect").value;
-    if (!selectedItem) return;
-
-    const food = foodDatabase.find(food => food.name === selectedItem);
-    if (food) {
-        document.getElementById("foodSearch").value = food.name;
-        document.getElementById("carbPer100g").value = food.carbsPer100g;
+    const selectedName = document.getElementById("itemSelect").value;
+    const selectedFood = foodDatabase.find(food => food.nameSlovak === selectedName);
+    if (selectedFood) {
+        document.getElementById("foodSearch").value = selectedFood.nameSlovak;
+        document.getElementById("carbPer100g").value = selectedFood.carbsPer100g;
         document.getElementById("suggestionBox").style.display = "none";
-
-        // Hide category selectors after selection
         toggleCategorySelectors(false);
-
         updateWeightFromCarbUnits();
         updateCarbUnitsFromWeight();
     }
 }
 
-// -----------------------------
-//   DYNAMIC SUGGESTION BOX
-// -----------------------------
+// Search functionality with relevance and alphabetical sorting
 function searchFood() {
-    const input = document.getElementById("foodSearch").value.trim().toLowerCase();
+    const query = document.getElementById("foodSearch").value.toLowerCase().trim();
     const box = document.getElementById("suggestionBox");
+    box.innerHTML = '';
 
-    // If empty, hide suggestions
-    if (!input) {
+    console.log(`User Query: "${query}"`); // Debugging log
+
+    if (query.length === 0) {
         box.style.display = "none";
         return;
     }
 
-    // Filter the database based on typed text
-    const filtered = foodDatabase.filter(food =>
-        food.name.toLowerCase().includes(input)
-    );
+    // Filter suggestions based on the query
+    let suggestions = foodDatabase.filter(food => food.nameSlovak.toLowerCase().includes(query));
 
-    // If no results, hide suggestions
-    if (filtered.length === 0) {
-        box.innerHTML = "";
+    console.log(`Suggestions Found:`, suggestions); // Debugging log
+
+    if (suggestions.length === 0) {
         box.style.display = "none";
         return;
     }
 
-    // Build the suggestion list (only showing 'name')
-    let html = "";
-    filtered.forEach(food => {
-        html += `
-            <button type="button" class="list-group-item list-group-item-action" onclick="selectFoodFromSuggestion('${food.name}', ${food.carbsPer100g})">
-                ${food.name}
+    // Define relevance
+    suggestions = suggestions.map(food => {
+        let relevance = 0;
+        if (food.nameSlovak.toLowerCase().startsWith(query)) {
+            relevance = 2; // Highest relevance
+        } else if (food.nameSlovak.toLowerCase().includes(query)) {
+            relevance = 1; // Lower relevance
+        }
+        return { ...food, relevance };
+    });
+
+    console.log(`Suggestions with Relevance:`, suggestions); // Debugging log
+
+    // Sort suggestions first by relevance (descending), then alphabetically
+    suggestions.sort((a, b) => {
+        if (b.relevance !== a.relevance) {
+            return b.relevance - a.relevance; // Higher relevance first
+        }
+        // If relevance is the same, sort alphabetically
+        return a.nameSlovak.localeCompare(b.nameSlovak);
+    });
+
+    console.log(`Sorted Suggestions:`, suggestions); // Debugging log
+
+    // Limit to first 10 suggestions
+    suggestions.slice(0, 10).forEach(food => {
+        // Highlight the matching part
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'i');
+        const highlightedName = food.nameSlovak.replace(regex, `<strong>$1</strong>`);
+
+        box.innerHTML += `
+            <button type="button" class="list-group-item list-group-item-action" onclick="selectFoodFromSuggestion('${escapeQuotes(food.nameSlovak)}', ${food.carbsPer100g})">
+                ${highlightedName}
             </button>
         `;
     });
-    box.innerHTML = html;
-    box.style.display = "block";
+
+    box.style.display = "block"; // Show the suggestion box
+}
+
+// Escape single quotes in food names to prevent issues in onclick
+function escapeQuotes(str) {
+    return str.replace(/'/g, "\\'");
+}
+
+// Escape special characters for regex
+function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape regex characters
 }
 
 // Called when user clicks one of the suggestions
 function selectFoodFromSuggestion(name, carbs) {
     document.getElementById("foodSearch").value = name;  // fill search box
     document.getElementById("carbPer100g").value = carbs; // set carbs
-    document.getElementById("suggestionBox").style.display = "none";
+    document.getElementById("suggestionBox").style.display = "none"; // Hide suggestion box
 
     // Hide category selectors if visible
     toggleCategorySelectors(false);
@@ -151,9 +207,7 @@ function selectFoodFromSuggestion(name, carbs) {
     updateCarbUnitsFromWeight();
 }
 
-// -----------------------------
-//        TOGGLE CATEGORY SELECTORS
-// -----------------------------
+// Toggle Category Selectors
 function toggleCategorySelectors(show = null) {
     const categorySelectors = document.getElementById("categorySelectors");
     const showBtn = document.getElementById("showCategoryBtn");
@@ -189,9 +243,7 @@ function toggleCategorySelectors(show = null) {
     }
 }
 
-// -----------------------------
-//   ADVANCED SETTINGS LOGIC
-// -----------------------------
+// Advanced Settings Logic
 document.getElementById("advancedSettingsForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -215,9 +267,7 @@ document.getElementById("advancedSettingsForm").addEventListener("submit", funct
     resetAll();
 });
 
-// -----------------------------
-//  DISPLAY CARB UNIT SIZE
-// -----------------------------
+// Display Carb Unit Size
 function displayCarbUnit() {
     const display = document.getElementById("carbUnitDisplay");
     const currentDisplay = document.getElementById("currentCarbUnit");
@@ -229,9 +279,7 @@ function displayCarbUnit() {
     }
 }
 
-// -----------------------------
-//  “CURRENCY EXCHANGE” LOGIC
-// -----------------------------
+// “Currency Exchange” Logic
 function handleCarbPer100gChange() {
     // Reset search and selectors if carbPer100g is manually changed
     document.getElementById("foodSearch").value = "";
@@ -243,7 +291,7 @@ function handleCarbPer100gChange() {
     updateCarbUnitsFromWeight();
 }
 
-// (1) From carbUnits => update foodWeight
+// From carbUnits => update foodWeight
 function updateWeightFromCarbUnits() {
     const carbPer100g = parseFloat(document.getElementById("carbPer100g").value);
     const carbUnits = parseFloat(document.getElementById("carbUnits").value);
@@ -257,7 +305,7 @@ function updateWeightFromCarbUnits() {
     }
 }
 
-// (2) From foodWeight => update carbUnits
+// From foodWeight => update carbUnits
 function updateCarbUnitsFromWeight() {
     const carbPer100g = parseFloat(document.getElementById("carbPer100g").value);
     const foodWeight = parseFloat(document.getElementById("foodWeight").value);
@@ -271,9 +319,7 @@ function updateCarbUnitsFromWeight() {
     }
 }
 
-// -----------------------------
-//  PREVENT NON-NUMERIC INPUT
-// -----------------------------
+// Prevent Non-Numeric Input
 function preventNonNumericInput() {
     const numberFields = document.querySelectorAll('input[type="number"]');
     numberFields.forEach(field => {
@@ -286,6 +332,10 @@ function preventNonNumericInput() {
     });
 }
 
+// Call preventNonNumericInput on page load
+document.addEventListener('DOMContentLoaded', preventNonNumericInput);
+
+// Reset all input fields and results
 function resetAll(){
     document.getElementById("carbPer100g").value = '';
     document.getElementById("carbUnits").value = '';
@@ -295,3 +345,6 @@ function resetAll(){
     document.getElementById("categorySelect").value = '';
     document.getElementById("itemSelect").value = '';
 }
+
+// Load the food database when the page loads
+document.addEventListener('DOMContentLoaded', loadFoodDatabase);
