@@ -48,10 +48,26 @@ h1 {
 }
 
 /* Simple suggestion box styling */
+/* Existing Styles */
+
+/* Simple suggestion box styling */
 #suggestionBox {
     display: none; /* hidden until we have matches */
+    position: absolute; /* Ensure it's absolutely positioned */
+    top: 100%; /* Position it directly below the input field */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Higher z-index to appear above other elements */
+    max-height: 400px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+    background-color: #ffffff; /* White background for visibility */
+    border: 1px solid #ced4da; /* Border similar to Bootstrap input */
+    border-top: none; /* Remove top border to connect seamlessly with input */
+    border-radius: 0 0 0.25rem 0.25rem; /* Rounded bottom corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Adjust list-group-item styles */
 #suggestionBox .list-group-item {
     cursor: pointer;
 }
