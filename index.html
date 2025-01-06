@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons (Optional for other social links) -->
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container my-4">
+<div class="container my-4 pt-3">
     <h1 class="text-center">Carb Guide</h1>
 
     <!-- (1) Search and Category Button in a Row -->
@@ -61,10 +61,9 @@
 
     <!-- (3) Single card with “currency exchange” style inputs -->
     <div class="card mt-4">
-        <div class="card-body">
-            <!-- a) Obsah sacharidov na 100 g + label for selected food -->
+        <div class="card-body rounded">
             <div class="mb-3">
-                <label for="carbPer100g" class="form-label">Obsah sacharidov na 100 g potraviny:</label>
+                <label for="carbPer100g" class="form-label">Obsah sacharidov v gramoch na 100 g potraviny:</label>
                 <input
                         type="number"
                         id="carbPer100g"
@@ -75,7 +74,6 @@
                 />
             </div>
 
-            <!-- b) Group the next two fields visually -->
             <div class="connected-fields p-3 bg-light border rounded">
                 <!-- Počet sacharidových jednotiek -->
                 <div class="mb-3">
@@ -91,7 +89,7 @@
 
                 <!-- Hmotnosť jedla -->
                 <div class="mb-3">
-                    <label for="foodWeight" class="form-label">Hmotnosť jedla (v gramoch):</label>
+                    <label for="foodWeight" class="form-label">Hmotnosť jedla v gramoch:</label>
                     <input
                             type="number"
                             id="foodWeight"
@@ -107,17 +105,41 @@
         </div>
     </div>
 
-    <!-- (4) Advanced Settings Button -->
-    <div class="text-center mt-4">
-        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#advancedSettingsModal">Pokročilé nastavenia</button>
-    </div>
-
-    <!-- (5) Display Carb Unit Size if changed from default -->
-    <div id="carbUnitDisplay" class="text-center mt-3 d-none">
-        <strong>Aktuálna veľkosť sacharidovej jednotky:</strong> <span id="currentCarbUnit">10</span> g
-    </div>
-
 </div>
+
+<!-- (4) Advanced Settings Button -->
+<div class="text-center mt-4">
+    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#advancedSettingsModal">Pokročilé nastavenia</button>
+</div>
+
+<!-- (5) Display Carb Unit Size if changed from default -->
+<div id="carbUnitDisplay" class="text-center mt-3 d-none">
+    Aktuálna veľkosť sacharidovej jednotky: <strong><span id="currentCarbUnit">10</span> g </strong>
+</div>
+
+<div id="space-div"></div>
+
+<div class="mt-5 container">
+    <div class="card-body rounded">
+        <div class="pt-2 ps-5 pe-5 pb-4">
+        <h2 class="pt-4">Bootstrap heading</h2>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue quam, vehicula at vulputate a, bibendum nec est. Nunc gravida nunc non ex placerat fermentum. Integer tempor libero quis tortor convallis, pretium dignissim libero gravida. Vestibulum pharetra iaculis ante sed efficitur. Pellentesque facilisis egestas massa, posuere tristique ante pulvinar ut. Sed posuere, enim sed hendrerit laoreet, odio dolor iaculis purus, lacinia lobortis dolor tortor vel dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum metus sit amet feugiat molestie. Morbi pharetra, augue nec fringilla convallis, nisl mi tincidunt turpis, eu accumsan neque tellus eu metus.
+        <h2 class="pt-4">Bootstrap heading</h2>
+        Curabitur ullamcorper magna et interdum congue. Phasellus diam ante, bibendum eget ipsum vel, cursus cursus urna. Donec accumsan tincidunt ornare. Donec efficitur odio in massa congue, a lacinia magna tincidunt. Vivamus aliquam tincidunt facilisis. Nulla magna ante, aliquet in nisi varius, eleifend condimentum ex. Donec odio ipsum, hendrerit id rhoncus nec, mattis et purus.
+        <h2 class="pt-4">Bootstrap heading</h2>
+        Aenean hendrerit arcu in ligula laoreet, ut gravida magna mattis. Quisque ultricies sem non finibus posuere. Pellentesque a congue purus, et egestas risus. Vestibulum felis sapien, venenatis non urna finibus, laoreet vestibulum lectus. In justo velit, dictum in malesuada et, vulputate non turpis. Donec odio libero, fringilla sit amet porttitor sed, imperdiet eu mauris. Suspendisse ultricies, mi sit amet condimentum luctus, tellus urna varius mauris, sit amet ultrices libero ex ut quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse felis ipsum, ornare ac viverra eget, feugiat a risus. Pellentesque nunc nunc, commodo pretium magna sed, auctor eleifend turpis.
+        <h2 class="pt-4">Bootstrap heading</h2>
+        Curabitur sem erat, ornare eleifend velit vel, tempus tincidunt odio. Donec vel orci vitae leo imperdiet finibus. Pellentesque eget eros ac eros ultrices commodo sed non est. Sed luctus vehicula arcu, quis tincidunt risus placerat eu. Pellentesque sit amet diam sit amet ante elementum congue. Sed eu mi diam. Sed pretium ex semper, mollis ipsum eu, molestie metus. Nunc tristique cursus enim, at mattis metus. Maecenas nec feugiat tortor.
+        <h2 class="pt-4">Bootstrap heading</h2>
+        In varius porta ex, et dictum nisi feugiat in. Nullam lacinia nulla at nisl vehicula pulvinar. Sed eu libero a lacus consequat efficitur. Curabitur eget neque a est bibendum tempus id in felis. Pellentesque condimentum venenatis lorem sit amet laoreet. Cras mollis luctus justo, sit amet convallis nulla maximus eu. Etiam vitae venenatis arcu. Etiam ullamcorper lacus eget sapien mollis, at convallis ante congue. Curabitur ullamcorper laoreet lectus, sed mollis nunc porttitor vitae. Duis sollicitudin quam nec sem commodo, tristique sodales turpis vehicula. Quisque sit amet nibh molestie, placerat nunc a, convallis dolor. Quisque id quam non leo elementum tempus non eget ante. Suspendisse ut sapien nisl.
+        <h2 class="pt-4">Bootstrap heading</h2>
+        Aenean sed ullamcorper lectus. Donec placerat mauris sed orci rutrum varius. Sed iaculis a diam eget bibendum. Nulla vitae velit enim. Pellentesque ut ullamcorper mauris. Duis in congue augue. Sed laoreet dapibus nunc, sed laoreet elit hendrerit quis. Nunc nec sapien vitae dolor sollicitudin interdum.
+    </div>
+        </div>
+</div>
+
+
+
 <div id="last-div"></div>
 
 <!-- Advanced Settings Modal -->

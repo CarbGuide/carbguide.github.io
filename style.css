@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #caded5;
+    height: 100vh;
 }
 
 .card {
@@ -114,7 +115,7 @@ h1 {
 }
 
 .patreon-logo {
-    width: 24px; 
+    width: 16px;
     height: auto;
     fill: #28a745; 
 }
@@ -133,6 +134,17 @@ input[type=number]{
     -moz-appearance: textfield;
 }
 
+#space-div {
+    margin-bottom: 150px;
+}
+
 #last-div {
     margin-bottom: 200px;
 }
+
+.text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 { font-size: 120%; }
