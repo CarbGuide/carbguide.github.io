@@ -14,6 +14,7 @@ body {
 }
 
 h1 {
+    font-size: 300%;
     color: #28a745;
     font-weight: bold;
     margin-top: 20px;
@@ -160,6 +161,12 @@ h2 {
     font-size: 120%;
 }
 
-h1 {
-    font-size: 300%;
+.btn-primary, .btn-secondary, .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
