@@ -57,8 +57,7 @@ Used technologies are:
 ### Structure
 The app havs simple architecture with 4 files:
 
-- `index.html` - main file with HTML structure - for english version
-- `sk.html` - main file with HTML structure - for slovak version 
+- `index.html` - main file with HTML structure
 - `style.css` - file with CSS styles
 - `script.js` - file with Javascript code
 - `table.csv` - file with food data in CSV format
