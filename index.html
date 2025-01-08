@@ -1,69 +1,108 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Carb Guide</title>
+    <meta charset="UTF-8" />
+    <title data-i18n="title">Carb Guide</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+<div class="position-absolute top-0 end-0 m-3" id="languageSelector">
+    <button
+            id="langEnBtn"
+            class="btn btn-outline-primary btn-sm"
+            onclick="setLanguage('en')"
+    >
+        English
+    </button>
+    <button
+            id="langSkBtn"
+            class="btn btn-outline-primary btn-sm ms-2"
+            onclick="setLanguage('sk')"
+    >
+        Slovak
+    </button>
+</div>
 <div class="container my-4 pt-3">
-    <h1 class="text-center">Carb Guide</h1>
-
-    <!-- (1) Search and Category Button in a Row -->
+    <h1 class="text-center" data-i18n="pageHeading">Carb Guide</h1>
     <div class="mb-4 position-relative">
         <div class="row g-3">
-            <!-- Search Input -->
             <div class="col-md-8">
-                <label for="foodSearch" class="form-label">Vyhľadajte jedlo:</label>
+                <label for="foodSearch" class="form-label" data-i18n="searchFoodLabel">
+                    Vyhľadajte jedlo:
+                </label>
                 <input
                         id="foodSearch"
                         class="form-control"
-                        placeholder="Začnite písať názov jedla (napr. Ryža)"
+                        data-i18n-placeholder="searchFoodPlaceholder"
+                        placeholder="Začnite písať názov jedla..."
                         oninput="searchFood()"
                         autocomplete="off"
                 />
-                <!-- Suggestion box (dynamic) -->
                 <div id="suggestionBox" class="list-group position-absolute w-100"></div>
             </div>
-            <!-- Category Button -->
             <div class="col-md-4 d-flex align-items-end">
-                <button id="showCategoryBtn" class="btn btn-secondary w-100" onclick="toggleCategorySelectors()">Vybrať podľa kategórie</button>
+                <button
+                        id="showCategoryBtn"
+                        class="btn btn-secondary w-100"
+                        onclick="toggleCategorySelectors()"
+                        data-i18n="selectCategoryBtn"
+                >
+                    Vybrať podľa kategórie
+                </button>
             </div>
         </div>
     </div>
-
-    <!-- (2) Category and Item Selectors - hidden initially -->
     <div id="categorySelectors" class="selector-group fade-in d-none">
         <div class="row g-3">
-            <!-- Category Selector -->
             <div class="col-md-6">
-                <label for="categorySelect" class="form-label">Vyberte kategóriu:</label>
-                <select id="categorySelect" class="form-select" onchange="populateItems()">
+                <label
+                        for="categorySelect"
+                        class="form-label"
+                        data-i18n="categoryLabel"
+                >
+                    Vyberte kategóriu:
+                </label>
+                <select
+                        id="categorySelect"
+                        class="form-select"
+                        onchange="populateItems()"
+                >
                     <option value="">-- Vyberte kategóriu --</option>
                 </select>
             </div>
-            <!-- Item Selector -->
             <div class="col-md-6">
-                <label for="itemSelect" class="form-label">Vyberte položku:</label>
-                <select id="itemSelect" class="form-select" onchange="selectItemFromDropdown()">
+                <label for="itemSelect" class="form-label" data-i18n="itemLabel">
+                    Vyberte položku:
+                </label>
+                <select
+                        id="itemSelect"
+                        class="form-select"
+                        onchange="selectItemFromDropdown()"
+                >
                     <option value="">-- Vyberte položku --</option>
                 </select>
             </div>
         </div>
     </div>
-
-    <!-- (3) Single card with “currency exchange” style inputs -->
     <div class="card mt-4">
         <div class="card-body rounded">
             <div class="mb-3">
-                <label for="carbPer100g" class="form-label">Obsah sacharidov v gramoch na 100 g potraviny:</label>
+                <label
+                        for="carbPer100g"
+                        class="form-label"
+                        data-i18n="carbPer100gLabel"
+                >
+                    Obsah sacharidov v gramoch na 100 g potraviny:
+                </label>
                 <input
                         type="number"
                         id="carbPer100g"
@@ -73,11 +112,15 @@
                         step="0.01"
                 />
             </div>
-
             <div class="connected-fields p-3 bg-light border rounded">
-                <!-- Počet sacharidových jednotiek -->
                 <div class="mb-3">
-                    <label for="carbUnits" class="form-label">Počet sacharidových jednotiek:</label>
+                    <label
+                            for="carbUnits"
+                            class="form-label"
+                            data-i18n="carbUnitsLabel"
+                    >
+                        Počet sacharidových jednotiek:
+                    </label>
                     <input
                             type="number"
                             id="carbUnits"
@@ -86,10 +129,14 @@
                             min="0"
                     />
                 </div>
-
-                <!-- Hmotnosť jedla -->
                 <div class="mb-3">
-                    <label for="foodWeight" class="form-label">Hmotnosť jedla v gramoch:</label>
+                    <label
+                            for="foodWeight"
+                            class="form-label"
+                            data-i18n="foodWeightLabel"
+                    >
+                        Hmotnosť jedla v gramoch:
+                    </label>
                     <input
                             type="number"
                             id="foodWeight"
@@ -99,61 +146,80 @@
                     />
                 </div>
             </div>
-
-            <!-- Optional text output -->
             <p id="exchangeResult" class="result mt-3"></p>
         </div>
     </div>
-
 </div>
-
-<!-- (4) Advanced Settings Button -->
 <div class="text-center mt-4">
-    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#advancedSettingsModal">Pokročilé nastavenia</button>
+    <button
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#advancedSettingsModal"
+            data-i18n="advancedSettings"
+    >
+        Pokročilé nastavenia
+    </button>
 </div>
-
-<!-- (5) Display Carb Unit Size if changed from default -->
 <div id="carbUnitDisplay" class="text-center mt-3 d-none">
-    Aktuálna veľkosť sacharidovej jednotky: <strong><span id="currentCarbUnit">10</span> g </strong>
+    <span data-i18n="currentCarbUnitText">
+      Aktuálna veľkosť sacharidovej jednotky:
+    </span>
+    <strong><span id="currentCarbUnit">10</span> g</strong>
 </div>
-
 <div id="space-div"></div>
-
 <div class="mt-5 container">
     <div class="card-body rounded">
         <div class="pt-2 ps-5 pe-5 pb-4">
-        <h2 class="pt-4">Bootstrap heading</h2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue quam, vehicula at vulputate a, bibendum nec est. Nunc gravida nunc non ex placerat fermentum. Integer tempor libero quis tortor convallis, pretium dignissim libero gravida. Vestibulum pharetra iaculis ante sed efficitur. Pellentesque facilisis egestas massa, posuere tristique ante pulvinar ut. Sed posuere, enim sed hendrerit laoreet, odio dolor iaculis purus, lacinia lobortis dolor tortor vel dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum metus sit amet feugiat molestie. Morbi pharetra, augue nec fringilla convallis, nisl mi tincidunt turpis, eu accumsan neque tellus eu metus.
-        <h2 class="pt-4">Bootstrap heading</h2>
-        Curabitur ullamcorper magna et interdum congue. Phasellus diam ante, bibendum eget ipsum vel, cursus cursus urna. Donec accumsan tincidunt ornare. Donec efficitur odio in massa congue, a lacinia magna tincidunt. Vivamus aliquam tincidunt facilisis. Nulla magna ante, aliquet in nisi varius, eleifend condimentum ex. Donec odio ipsum, hendrerit id rhoncus nec, mattis et purus.
-        <h2 class="pt-4">Bootstrap heading</h2>
-        Aenean hendrerit arcu in ligula laoreet, ut gravida magna mattis. Quisque ultricies sem non finibus posuere. Pellentesque a congue purus, et egestas risus. Vestibulum felis sapien, venenatis non urna finibus, laoreet vestibulum lectus. In justo velit, dictum in malesuada et, vulputate non turpis. Donec odio libero, fringilla sit amet porttitor sed, imperdiet eu mauris. Suspendisse ultricies, mi sit amet condimentum luctus, tellus urna varius mauris, sit amet ultrices libero ex ut quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse felis ipsum, ornare ac viverra eget, feugiat a risus. Pellentesque nunc nunc, commodo pretium magna sed, auctor eleifend turpis.
-        <h2 class="pt-4">Bootstrap heading</h2>
-        Curabitur sem erat, ornare eleifend velit vel, tempus tincidunt odio. Donec vel orci vitae leo imperdiet finibus. Pellentesque eget eros ac eros ultrices commodo sed non est. Sed luctus vehicula arcu, quis tincidunt risus placerat eu. Pellentesque sit amet diam sit amet ante elementum congue. Sed eu mi diam. Sed pretium ex semper, mollis ipsum eu, molestie metus. Nunc tristique cursus enim, at mattis metus. Maecenas nec feugiat tortor.
-        <h2 class="pt-4">Bootstrap heading</h2>
-        In varius porta ex, et dictum nisi feugiat in. Nullam lacinia nulla at nisl vehicula pulvinar. Sed eu libero a lacus consequat efficitur. Curabitur eget neque a est bibendum tempus id in felis. Pellentesque condimentum venenatis lorem sit amet laoreet. Cras mollis luctus justo, sit amet convallis nulla maximus eu. Etiam vitae venenatis arcu. Etiam ullamcorper lacus eget sapien mollis, at convallis ante congue. Curabitur ullamcorper laoreet lectus, sed mollis nunc porttitor vitae. Duis sollicitudin quam nec sem commodo, tristique sodales turpis vehicula. Quisque sit amet nibh molestie, placerat nunc a, convallis dolor. Quisque id quam non leo elementum tempus non eget ante. Suspendisse ut sapien nisl.
-        <h2 class="pt-4">Bootstrap heading</h2>
-        Aenean sed ullamcorper lectus. Donec placerat mauris sed orci rutrum varius. Sed iaculis a diam eget bibendum. Nulla vitae velit enim. Pellentesque ut ullamcorper mauris. Duis in congue augue. Sed laoreet dapibus nunc, sed laoreet elit hendrerit quis. Nunc nec sapien vitae dolor sollicitudin interdum.
-    </div>
+            <h2 class="pt-4">Bootstrap heading</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue quam, vehicula at vulputate a, bibendum nec est. Nunc gravida nunc non ex placerat fermentum. Integer tempor libero quis tortor convallis, pretium dignissim libero gravida. Vestibulum pharetra iaculis ante sed efficitur. Pellentesque facilisis egestas massa, posuere tristique ante pulvinar ut. Sed posuere, enim sed hendrerit laoreet, odio dolor iaculis purus, lacinia lobortis dolor tortor vel dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum metus sit amet feugiat molestie. Morbi pharetra, augue nec fringilla convallis, nisl mi tincidunt turpis, eu accumsan neque tellus eu metus.
+            <h2 class="pt-4">Bootstrap heading</h2>
+            Curabitur ullamcorper magna et interdum congue. Phasellus diam ante, bibendum eget ipsum vel, cursus cursus urna. Donec accumsan tincidunt ornare. Donec efficitur odio in massa congue, a lacinia magna tincidunt. Vivamus aliquam tincidunt facilisis. Nulla magna ante, aliquet in nisi varius, eleifend condimentum ex. Donec odio ipsum, hendrerit id rhoncus nec, mattis et purus.
+            <h2 class="pt-4">Bootstrap heading</h2>
+            Aenean hendrerit arcu in ligula laoreet, ut gravida magna mattis. Quisque ultricies sem non finibus posuere. Pellentesque a congue purus, et egestas risus. Vestibulum felis sapien, venenatis non urna finibus, laoreet vestibulum lectus. In justo velit, dictum in malesuada et, vulputate non turpis. Donec odio libero, fringilla sit amet porttitor sed, imperdiet eu mauris. Suspendisse ultricies, mi sit amet condimentum luctus, tellus urna varius mauris, sit amet ultrices libero ex ut quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse felis ipsum, ornare ac viverra eget, feugiat a risus. Pellentesque nunc nunc, commodo pretium magna sed, auctor eleifend turpis.
+            <h2 class="pt-4">Bootstrap heading</h2>
+            Curabitur sem erat, ornare eleifend velit vel, tempus tincidunt odio. Donec vel orci vitae leo imperdiet finibus. Pellentesque eget eros ac eros ultrices commodo sed non est. Sed luctus vehicula arcu, quis tincidunt risus placerat eu. Pellentesque sit amet diam sit amet ante elementum congue. Sed eu mi diam. Sed pretium ex semper, mollis ipsum eu, molestie metus. Nunc tristique cursus enim, at mattis metus. Maecenas nec feugiat tortor.
+            <h2 class="pt-4">Bootstrap heading</h2>
+            In varius porta ex, et dictum nisi feugiat in. Nullam lacinia nulla at nisl vehicula pulvinar. Sed eu libero a lacus consequat efficitur. Curabitur eget neque a est bibendum tempus id in felis. Pellentesque condimentum venenatis lorem sit amet laoreet. Cras mollis luctus justo, sit amet convallis nulla maximus eu. Etiam vitae venenatis arcu. Etiam ullamcorper lacus eget sapien mollis, at convallis ante congue. Curabitur ullamcorper laoreet lectus, sed mollis nunc porttitor vitae. Duis sollicitudin quam nec sem commodo, tristique sodales turpis vehicula. Quisque sit amet nibh molestie, placerat nunc a, convallis dolor. Quisque id quam non leo elementum tempus non eget ante. Suspendisse ut sapien nisl.
+            <h2 class="pt-4">Bootstrap heading</h2>
+            Aenean sed ullamcorper lectus. Donec placerat mauris sed orci rutrum varius. Sed iaculis a diam eget bibendum. Nulla vitae velit enim. Pellentesque ut ullamcorper mauris. Duis in congue augue. Sed laoreet dapibus nunc, sed laoreet elit hendrerit quis. Nunc nec sapien vitae dolor sollicitudin interdum.
         </div>
+    </div>
 </div>
-
-
-
 <div id="last-div"></div>
-
-<!-- Advanced Settings Modal -->
-<div class="modal fade" id="advancedSettingsModal" tabindex="-1" aria-labelledby="advancedSettingsModalLabel" aria-hidden="true">
+<div
+        class="modal fade"
+        id="advancedSettingsModal"
+        tabindex="-1"
+        aria-labelledby="advancedSettingsModalLabel"
+        aria-hidden="true"
+>
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="advancedSettingsForm">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="advancedSettingsModalLabel">Pokročilé nastavenia</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zatvoriť"></button>
+                    <h5
+                            class="modal-title"
+                            id="advancedSettingsModalLabel"
+                            data-i18n="advancedSettings"
+                    >
+                        Pokročilé nastavenia
+                    </h5>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                    ></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="carbUnitSize" class="form-label">Veľkosť sacharidovej jednotky (g):</label>
+                        <label
+                                for="carbUnitSize"
+                                class="form-label"
+                                data-i18n="carbUnitSizeLabel"
+                        >
+                            Veľkosť sacharidovej jednotky (g):
+                        </label>
                         <input
                                 type="number"
                                 id="carbUnitSize"
@@ -161,59 +227,90 @@
                                 min="1"
                                 required
                         />
-                        <div class="form-text">Zadajte počet gramov sacharidov, ktoré predstavujú jednu jednotku.</div>
+                        <div
+                                class="form-text"
+                                data-i18n="carbUnitSizeHelp"
+                        >
+                            Zadajte počet gramov sacharidov, ktoré predstavujú jednu jednotku.
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvoriť</button>
-                    <button type="submit" class="btn btn-primary">Uložiť</button>
+                    <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            data-i18n="closeModal"
+                    >
+                        Zatvoriť
+                    </button>
+                    <button type="submit" class="btn btn-primary" data-i18n="saveModal">
+                        Uložiť
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-<!-- Footer -->
 <footer class="footer bg-light text-center text-lg-start mt-5">
-    <!-- Use container-fluid to span full width -->
     <div class="container-fluid p-4">
         <div class="row justify-content-center">
-            <!-- Patreon Link with Custom SVG Logo -->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <a href="https://www.patreon.com/carbguide" target="_blank" class="d-flex align-items-center justify-content-center mb-2">
-                    <!-- Custom Patreon SVG Logo -->
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245.53 268.91" class="me-2 patreon-logo" role="img" aria-labelledby="patreonTitle">
+                <a
+                        href="https://www.patreon.com/carbguide"
+                        target="_blank"
+                        class="d-flex align-items-center justify-content-center mb-2"
+                >
+                    <svg
+                            id="Layer_1"
+                            data-name="Layer 1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 245.53 268.91"
+                            class="me-2 patreon-logo"
+                            role="img"
+                            aria-labelledby="patreonTitle"
+                    >
                         <title id="patreonTitle">Patreon Logo</title>
-                        <path d="M506.76,330.33c0-34.34-26.79-62.48-58.16-72.63-39-12.61-90.35-10.78-127.55,6.77-45.09,21.28-59.26,67.89-59.78,114.37-.43,38.22,3.38,138.88,60.16,139.6,42.19.54,48.47-53.83,68-80,13.89-18.63,31.77-23.89,53.78-29.34C481,399.74,506.82,369.88,506.76,330.33Z" transform="translate(-261.24 -249.55)"/>
+                        <path
+                                d="M506.76,330.33c0-34.34-26.79-62.48-58.16-72.63-39-12.61-90.35-10.78-127.55,6.77-45.09,21.28-59.26,67.89-59.78,114.37-.43,38.22,3.38,138.88,60.16,139.6,42.19.54,48.47-53.83,68-80,13.89-18.63,31.77-23.89,53.78-29.34C481,399.74,506.82,369.88,506.76,330.33Z"
+                                transform="translate(-261.24 -249.55)"
+                        />
                     </svg>
                     Patreon
                 </a>
             </div>
-            <!-- LinkedIn Link -->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <a href="https://www.linkedin.com/" target="_blank" class="d-flex align-items-center justify-content-center mb-2">
+                <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        class="d-flex align-items-center justify-content-center mb-2"
+                >
                     <i class="bi bi-linkedin me-2"></i> LinkedIn
                 </a>
             </div>
-            <!-- YouTube Link -->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <a href="https://www.youtube.com/@carbguide" target="_blank" class="d-flex align-items-center justify-content-center mb-2">
+                <a
+                        href="https://www.youtube.com/@carbguide"
+                        target="_blank"
+                        class="d-flex align-items-center justify-content-center mb-2"
+                >
                     <i class="bi bi-youtube me-2"></i> YouTube
                 </a>
             </div>
-            <!-- README Link -->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <a href="https://github.com/CarbGuide/carbguide.github.io/blob/main/README.md" class="d-flex align-items-center justify-content-center mb-2">
+                <a
+                        href="https://github.com/CarbGuide/carbguide.github.io/blob/main/README.md"
+                        class="d-flex align-items-center justify-content-center mb-2"
+                >
                     <i class="bi bi-file-earmark-text me-2"></i> Dokumentácia
                 </a>
             </div>
         </div>
     </div>
 </footer>
-
-<!-- Bootstrap 5 JS Bundle (Includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -20,14 +20,30 @@ h1 {
     margin-bottom: 20px;
 }
 
-.btn-primary, .btn-secondary, .btn-success {
+.btn-outline-primary {
+    color: #28a745;
+    border: 2px solid #28a745;
+    background-color: transparent;
+    font-size: 0.875rem;
+    padding: 0.3rem 0.75rem;
+}
+.btn-outline-primary:hover {
+    color: #ffffff;
     background-color: #28a745;
-    border-color: #28a745;
+    border-color: #1e7e34;
 }
 
-.btn-primary:hover, .btn-secondary:hover, .btn-success:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+.btn-currentLang {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    border-color: #1e7e34 !important;
+}
+
+@media (max-width: 576px) {
+    #languageSelector .btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
 }
 
 .result {
@@ -48,25 +64,23 @@ h1 {
 }
 
 #suggestionBox {
-    display: none; 
-    position: absolute; 
+    display: none;
+    position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    z-index: 1000; 
-    max-height: 400px; 
-    overflow-y: auto; 
-    background-color: #ffffff; 
-    border: 1px solid #ced4da; 
-    border-top: none; 
-    border-radius: 0 0 0.25rem 0.25rem; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0 0 0.25rem 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 #suggestionBox .list-group-item {
     cursor: pointer;
 }
-
 #suggestionBox .list-group-item:hover {
     background-color: #e9ecef;
 }
@@ -76,7 +90,6 @@ h1 {
     transform: translateY(-10px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
@@ -94,7 +107,6 @@ h1 {
     text-decoration: none;
     margin: 5px 0;
 }
-
 .footer a:hover {
     text-decoration: underline;
 }
@@ -103,7 +115,6 @@ h1 {
     margin-bottom: 15px;
     color: #28a745;
 }
-
 .footer .bi {
     margin-right: 8px;
 }
@@ -117,7 +128,7 @@ h1 {
 .patreon-logo {
     width: 16px;
     height: auto;
-    fill: #28a745; 
+    fill: #28a745;
 }
 
 .me-2 {
@@ -129,15 +140,13 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
-input[type=number]{
+input[type=number] {
     -moz-appearance: textfield;
 }
 
 #space-div {
     margin-bottom: 150px;
 }
-
 #last-div {
     margin-bottom: 200px;
 }
@@ -147,4 +156,6 @@ input[type=number]{
     margin-bottom: 20px;
 }
 
-h2 { font-size: 120%; }
+h2 {
+    font-size: 120%;
+}

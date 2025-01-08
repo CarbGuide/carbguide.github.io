@@ -1,19 +1,132 @@
 nameSlovak,categorySlovak,nameEnglish,categoryEnglish,carbsPer100g
-Jablko,Ovocie,Apple,Fruit,12
-Ryža,Obilniny,Rice,Grain,28
-Chlieb,Pečivo,Bread,Bakery,50
-Zemiaky,Zelenina,Potatoes,Vegetables,17
-Banán,Ovocie,Banana,Fruit,23
-Celozrnný chlieb,Pečivo,Whole Grain Bread,Bakery,43
-Cestoviny,Obilniny,Pasta,Grain,31
-Mrkva,Zelenina,Carrot,Vegetables,10
-Špenát,Zelenina,Spinach,Vegetables,3.6
-Mlieko,Mliečne výrobky,Milk,Dairy,5
-Jogurt,Mliečne výrobky,Yogurt,Dairy,4.7
-Syry,Mliečne výrobky,Cheese,Dairy,1.3
-Kuracie mäso,Mäso,Chicken,Meat,0
-Hovädzie mäso,Mäso,Beef,Meat,0
-Losos,Rybí výrobky,Salmon,Seafood,0
-Čokoláda,Sladkosti,Chocolate,Sweets,46
-Cukor,Sladkosti,Sugar,Sweets,100
-Med,Sladkosti,Honey,Sweets,82
+Chlieb čierny,Škroboviny,Black bread,Starchy Foods,62.5
+Chlieb grahamový,Škroboviny,Graham bread,Starchy Foods,50
+Chlieb celozrnný,Škroboviny,Whole grain bread,Starchy Foods,47.62
+Proso,Škroboviny,Millet,Starchy Foods,71.43
+Kukuričné zrná suché,Škroboviny,Dried corn kernels,Starchy Foods,71.43
+Pohánka – lúpaná,Škroboviny,Hulled buckwheat,Starchy Foods,71.43
+Chlieb biely,Škroboviny,White bread,Starchy Foods,52.63
+Chlieb zemiakový,Škroboviny,Potato bread,Starchy Foods,52.63
+Knäckebrot,Škroboviny,Crispbread,Starchy Foods,66.67
+Múka pšeničná,Škroboviny,Wheat flour,Starchy Foods,77
+Múka pšeničná celozrnná,Škroboviny,Whole wheat flour,Starchy Foods,71.43
+Múka celozrnná pohánková,Škroboviny,Whole buckwheat flour,Starchy Foods,71.43
+Suchár diétny,Škroboviny,Diet rusk,Starchy Foods,77
+Žemľa tmavá,Škroboviny,Dark bread roll,Starchy Foods,62.5
+Pečivo grahamové,Škroboviny,Graham pastry,Starchy Foods,58.82
+Ryžová múka,Škroboviny,Rice flour,Starchy Foods,83.33
+Ražné klíčky,Škroboviny,Rye sprouts,Starchy Foods,31.25
+Jačmenné krúpy,Škroboviny,Pearl barley,Starchy Foods,77
+Pečivo celozrnné,Škroboviny,Whole grain pastry,Starchy Foods,55.56
+Pečivo biele,Škroboviny,White pastry,Starchy Foods,58.82
+Bageta biela,Škroboviny,White baguette,Starchy Foods,62.5
+Ovsené vločky,Škroboviny,Rolled oats,Starchy Foods,71.43
+Ovsené klíčky,Škroboviny,Oat germ,Starchy Foods,35.71
+Kukuričný škrob,Škroboviny,Corn starch,Starchy Foods,90.91
+Strúhanka,Škroboviny,Breadcrumbs,Starchy Foods,77
+Pšenica – celé zrno,Škroboviny,Wheat – whole grain,Starchy Foods,71.43
+Pšeničné klíčky,Škroboviny,Wheat germ,Starchy Foods,45.45
+Zemiakový škrob,Škroboviny,Potato starch,Starchy Foods,83.33
+Fazuľa suchá,Škroboviny,Dry beans,Starchy Foods,62.5
+Fazuľa varená,Škroboviny,Cooked beans,Starchy Foods,20.83
+Raž,Škroboviny,Rye,Starchy Foods,71.43
+Jačmeň – celé zrno,Škroboviny,Barley – whole grain,Starchy Foods,71.43
+Ovos – celé zrno,Škroboviny,Oats – whole grain,Starchy Foods,66.67
+Šošovica suchá,Škroboviny,Dry lentils,Starchy Foods,58.82
+Šošovica varená,Škroboviny,Cooked lentils,Starchy Foods,17.24
+Hrach suchý,Škroboviny,Dry peas,Starchy Foods,62.5
+Hrach varený,Škroboviny,Cooked peas,Starchy Foods,20.41
+Cícer suchý,Škroboviny,Dry chickpeas,Starchy Foods,58.82
+Cícer varený,Škroboviny,Cooked chickpeas,Starchy Foods,22.73
+Ryža natural varená,Škroboviny,Cooked brown rice,Starchy Foods,23.81
+Zemiaky,Škroboviny,Potatoes,Starchy Foods,20.41
+Zemiaková kaša,Škroboviny,Mashed potatoes,Starchy Foods,11.11
+Sója suchá,Škroboviny,Dry soybeans,Starchy Foods,26.32
+Sója varená,Škroboviny,Cooked soybeans,Starchy Foods,10.75
+Sójový granulát,Škroboviny,Soy granules,Starchy Foods,12.66
+Zemiakové hranolčeky,Škroboviny,French fries,Starchy Foods,25.0
+Topinambur,Škroboviny,Jerusalem artichoke,Starchy Foods,16.67
+Pudingový prášok (bez cukru),Škroboviny,Pudding powder (no sugar),Starchy Foods,90.91
+Sójova múka plnotučná,Škroboviny,Full-fat soy flour,Starchy Foods,23.81
+Sójova múka odtučnená,Škroboviny,Defatted soy flour,Starchy Foods,33.33
+Sójové mlieko sušené,Škroboviny,Dried soy milk,Starchy Foods,66.67
+Zemiakové lupienky,Škroboviny,Potato chips,Starchy Foods,40.0
+Pražená kukurica - pukance,Škroboviny,Popcorn,Starchy Foods,55.56
+Slané tyčinky,Škroboviny,Salty sticks,Starchy Foods,76.92
+Cestoviny celozrnné surové,Škroboviny,Whole grain pasta (raw),Starchy Foods,76.92
+Cestoviny celozrnné varené,Škroboviny,Whole grain pasta (cooked),Starchy Foods,27.03
+Cestoviny biele surové,Škroboviny,White pasta (raw),Starchy Foods,76.92
+Kukuričné lupienky,Škroboviny,Corn flakes,Starchy Foods,83.33
+Cestoviny biele varené,Škroboviny,White pasta (cooked),Starchy Foods,27.03
+Knedľa varená,Škroboviny,Cooked dumpling,Starchy Foods,50.0
+Knedľa zemiaková,Škroboviny,Potato dumpling,Starchy Foods,20.0
+Ryža lúpaná surová,Škroboviny,White rice (raw),Starchy Foods,83.33
+Ryža lúpaná varená,Škroboviny,White rice (cooked),Starchy Foods,26.32
+Ryža natural surová,Škroboviny,Brown rice (raw),Starchy Foods,76.92
+Pšeno,Moderné zdroje sacharidov v diabetickej biokuchyni,Millet,Modern Carb Sources in Diabetic Bio-cuisine,71.43
+Špalda,Moderné zdroje sacharidov v diabetickej biokuchyni,Spelt,Modern Carb Sources in Diabetic Bio-cuisine,76.92
+Kuskus,Moderné zdroje sacharidov v diabetickej biokuchyni,Couscous,Modern Carb Sources in Diabetic Bio-cuisine,71.43
+Bulgur,Moderné zdroje sacharidov v diabetickej biokuchyni,Bulgur,Modern Carb Sources in Diabetic Bio-cuisine,76.92
+Kvinoa,Moderné zdroje sacharidov v diabetickej biokuchyni,Quinoa,Modern Carb Sources in Diabetic Bio-cuisine,76.92
+Kamut,Moderné zdroje sacharidov v diabetickej biokuchyni,Kamut,Modern Carb Sources in Diabetic Bio-cuisine,71.43
+Pohánka,Moderné zdroje sacharidov v diabetickej biokuchyni,Buckwheat,Modern Carb Sources in Diabetic Bio-cuisine,71.43
+Jablko,Ovocie,Apple,Fruit,12.99
+Hruška,Ovocie,Pear,Fruit,13.51
+Dula,Ovocie,Quince,Fruit,14.08
+Čerešne,Ovocie,Cherries,Fruit,14.49
+Višne,Ovocie,Sour cherries,Fruit,12.2
+Marhuľa,Ovocie,Apricot,Fruit,12.05
+Broskyňa,Ovocie,Peach,Fruit,12.2
+Ringlota,Ovocie,Greengage plum,Fruit,15.87
+Melón červený,Ovocie,Watermelon,Fruit,5.92
+Melón cukrový,Ovocie,Cantaloupe,Fruit,7.69
+Jahody,Ovocie,Strawberries,Fruit,8.77
+Egreše,Ovocie,Gooseberries,Fruit,9.71
+Hrozno,Ovocie,Grapes,Fruit,16.95
+Banán,Ovocie,Banana,Fruit,22.22
+Pomaranč,Ovocie,Orange,Fruit,11.11
+Mandarínka,Ovocie,Mandarin,Fruit,9.43
+Grapefruit,Ovocie,Grapefruit,Fruit,10.0
+Citrón,Ovocie,Lemon,Fruit,9.26
+Kiwi,Ovocie,Kiwi,Fruit,13.89
+Ananás,Ovocie,Pineapple,Fruit,12.82
+Papája,Ovocie,Papaya,Fruit,10.99
+Mango,Ovocie,Mango,Fruit,16.67
+Avokádo,Ovocie,Avocado,Fruit,5.99
+Figy čerstvé,Ovocie,Fresh figs,Fruit,18.18
+Maliny,Ovocie,Raspberries,Fruit,12.82
+Ríbezle červené,Ovocie,Red currants,Fruit,12.82
+Ríbezle čierne,Ovocie,Black currants,Fruit,17.24
+Čučoriedky,Ovocie,Blueberries,Fruit,11.49
+Černice,Ovocie,Blackberries,Fruit,12.2
+Brusnice,Ovocie,Cranberries,Fruit,12.2
+Mrkva,Zelenina,Carrot,Vegetables,7.35
+Cvikla,Zelenina,Beetroot,Vegetables,9.62
+Hrášok zelený čerstvý,Zelenina,Fresh green peas,Vegetables,12.99
+Kukurica lahôdková,Zelenina,Sweet corn,Vegetables,18.87
+Mak,Orechoviny,Poppy seeds,Nuts,24.39
+Vlašské orechy,Orechoviny,Walnuts,Nuts,14.49
+Lieskové orechy,Orechoviny,Hazelnuts,Nuts,15.87
+Mandle,Orechoviny,Almonds,Nuts,18.87
+Pistácie,Orechoviny,Pistachios,Nuts,25.64
+Kokosový orech čerstvý,Orechoviny,Fresh coconut,Nuts,9.09
+Kokosová múčka,Orechoviny,Desiccated coconut,Nuts,24.39
+Arašidy lúpané,Orechoviny,Shelled peanuts,Nuts,18.18
+Arašidy nelúpané,Orechoviny,Unshelled peanuts,Nuts,18.18
+Jedlé gaštany,Orechoviny,Chestnuts,Nuts,41.67
+Para orechy,Orechoviny,Brazil nuts,Nuts,14.29
+Kešu oriešky,Orechoviny,Cashew nuts,Nuts,26.32
+Píniové oriešky,Orechoviny,Pine nuts,Nuts,14.29
+Mlieko kravské odtučnené,Mlieko a mliečne výrobky,Skimmed cow's milk,Milk & Dairy Products,4.88
+Mlieko kravské polotučné,Mlieko a mliečne výrobky,Semi-skimmed cow's milk,Milk & Dairy Products,4.85
+Mlieko kravské plnotučné,Mlieko a mliečne výrobky,Whole cow's milk,Milk & Dairy Products,4.76
+Mlieko kozie,Mlieko a mliečne výrobky,Goat's milk,Milk & Dairy Products,5.24
+Jogurt biely,Mlieko a mliečne výrobky,Plain yogurt,Milk & Dairy Products,4.85
+Kefír,Mlieko a mliečne výrobky,Kefir,Milk & Dairy Products,3.98
+Tvaroh,Mlieko a mliečne výrobky,Quark (curd cheese),Milk & Dairy Products,4.59
+Tvrdý syr Eidam,Mlieko a mliečne výrobky,Eidam cheese,Milk & Dairy Products,20.0
+Tavený syr,Mlieko a mliečne výrobky,Processed cheese,Milk & Dairy Products,33.33
+Kryštálový cukor,Rýchlo vstrebateľné sacharidy,Granulated sugar,Fast-absorbing Carbohydrates,100.0
+Hroznový cukor,Rýchlo vstrebateľné sacharidy,Glucose,Fast-absorbing Carbohydrates,100.0
+Kockový cukor,Rýchlo vstrebateľné sacharidy,Sugar cubes,Fast-absorbing Carbohydrates,100.0
+Včelí med,Rýchlo vstrebateľné sacharidy,Bee honey,Fast-absorbing Carbohydrates,76.92
