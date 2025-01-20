@@ -62,7 +62,7 @@ The app havs simple architecture with 4 files:
 - `script.js` - file with Javascript code
 - `table.csv` - file with food data in CSV format
 
-![structure.png](structure.png)
+![images/structure.png](images/structure.png)
 
 ### Food Data
 The food data is stored in a CSV file called `table.csv`. The file contains the following columns:
