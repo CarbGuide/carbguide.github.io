@@ -17,6 +17,24 @@ const i18n = {
         carbUnitSizeHelp: "Zadajte počet gramov sacharidov, ktoré predstavujú jednu jednotku.",
         closeModal: "Zatvoriť",
         saveModal: "Uložiť",
+        howItWorksTitle: "Ako funguje táto aplikácia",
+        howItWorksDescription:
+            "Táto aplikácia zjednodušuje sledovanie sacharidov a pomáha užívateľom robiť informované stravovacie rozhodnutia, najmä tým, ktorí riadia cukrovku alebo dodržiavajú špecifickú diétu. Umožňuje vám vyhľadať konkrétne potraviny zadaním ich názvu do vyhľadávacieho poľa, kde sa objavia návrhy z databázy potravín, alebo prehľadávať preddefinované kategórie ako obilniny, ovocie a zelenina. Pre potraviny, ktoré nie sú v databáze, môžete manuálne zadať obsah sacharidov na 100 gramov. Aplikácia počíta sacharidové jednotky (SJ) na základe hmotnosti potravín a naopak. Poskytuje aj možnosti prispôsobenia veľkosti sacharidovej jednotky podľa vašich potrieb alebo regionálnych štandardov, napríklad používaním Broteinheit (12 gramov sacharidov na jednotku) namiesto predvolených 10 gramov. Tento nástroj odporuje angličtinu a slovenčinu.",
+        whyCountCarbsTitle: "Prečo je dôležité počítanie sacharidov",
+        whyCountCarbsDescription:
+            "Počítanie sacharidov je kľúčovým aspektom pri riadení hladiny cukru v krvi, najmä u ľudí s cukrovkou. Sacharidy priamo ovplyvňujú hladinu glukózy, preto sledovanie ich príjmu pomáha zachovať stabilitu a predchádzať nežiaducim výkyvom.",
+        whatIsCarbUnitTitle: "Čo je sacharidová jednotka?",
+        whatIsCarbUnitDescription:
+            "Sacharidová jednotka (SJ) je štandardizovaná miera používaná v stravovacom manažmente. Jedna SJ zvyčajne zodpovedá 10 gramom sacharidov. Táto jednotka uľahčuje výpočty pri podávaní inzulínu a plánovaní jedál, najmä u ľudí s cukrovkou.",
+        otherUnitsTitle: "Iné jednotky",
+        otherUnitsDescription:
+            "Okrem sacharidových jednotiek (SJ) existujú aj iné systémy, napríklad Broteinheit (BE). Jedna BE zvyčajne predstavuje 12 gramov sacharidov a podobne uľahčuje plánovanie jedál pre ľudí s cukrovkou.",
+        customizingCarbUnitsTitle: "Prispôsobenie sacharidových jednotiek",
+        customizingCarbUnitsDescription:
+            "V pokročilých nastaveniach vám Carb Guide umožňuje upraviť veľkosť sacharidovej jednotky podľa vašich alebo regionálnych preferencií. Môžete napríklad nastaviť, že 1 sacharidová jednotka bude predstavovať 10 gramov, 12 gramov alebo akékoľvek iné množstvo sacharidov.",
+        howToFindCarbsTitle: "Ako zistiť množstvo sacharidov v 100 g potravín",
+        howToFindCarbsDescription:
+            "Existuje viacero spôsobov, ako určiť obsah sacharidov v 100 gramoch potravín. Aplikácia Carb Guide vám umožňuje vyhľadávať potraviny podľa názvu alebo prehľadávať kategórie a následne zobrazuje obsah sacharidov na 100 g zvolenej potraviny. Môžete to tiež zistiť z etikety na balených potravinách, ktoré väčšinou uvádzajú hodnotu „Sacharidy na 100 g“, alebo využívať online databázy a aplikácie s rozsiahlymi nutričnými údajmi. Tieto metódy zabezpečujú presné sledovanie príjmu sacharidov vo vašich jedlách."
     },
     en: {
         title: "Carb Guide",
@@ -36,6 +54,24 @@ const i18n = {
         carbUnitSizeHelp: "Enter how many grams of carbohydrate represent one unit.",
         closeModal: "Close",
         saveModal: "Save",
+        howItWorksTitle: "How This App Works",
+        howItWorksDescription:
+            "This app is designed to simplify carbohydrate tracking and help users make informed dietary decisions, especially for those managing diabetes or following a specific diet. It allows you to search for specific food items by typing their name in the search bar, where suggestions from a food database appear, or browse through predefined categories like grains, fruits, and vegetables to explore their carbohydrate values. For foods not in the database, you can manually enter the carbohydrate content per 100 grams. The app calculates carbohydrate units (CU) based on the food's weight and vice versa. It also provides customization options to adjust the size of a carbohydrate unit to suit your dietary needs or regional standards, such as using Broteinheit (12 grams of carbohydrates per unit) instead of the default 10 grams. It supports English and Slovak languages.",
+        whyCountCarbsTitle: "Why Counting Carbohydrates is Important",
+        whyCountCarbsDescription:
+            "Counting carbohydrates is a critical aspect of managing blood sugar levels, particularly for individuals with diabetes. Since carbohydrates directly impact glucose levels, monitoring their intake helps maintain stability and prevent spikes or drops.",
+        whatIsCarbUnitTitle: "What is a Carb Unit?",
+        whatIsCarbUnitDescription:
+            "A carbohydrate unit (CU) is a standardized measurement used in dietary management. One CU typically equals 10 grams of carbohydrates. This unit simplifies calculations for insulin dosing and meal planning, especially for those with diabetes.",
+        otherUnitsTitle: "Other Units",
+        otherUnitsDescription:
+            "In addition to carb units (CU), other systems like Broteinheit (BE) are used in some regions. One BE typically represents 12 grams of carbohydrates and serves a similar purpose as carb units by simplifying meal planning for individuals with diabetes.",
+        customizingCarbUnitsTitle: "Customizing Carb Units",
+        customizingCarbUnitsDescription:
+            "In advanced settings, Carb Guide allows you to adjust the size of a carbohydrate unit to match your preferences or regional guidelines. For example, you can set 1 carb unit to represent 10 grams, 12 grams, or any other value based on your dietary plan.",
+        howToFindCarbsTitle: "How to Find Carbs in 100g of Food",
+        howToFindCarbsDescription:
+            "Determining the carbohydrate content in 100 grams of food can be done in several ways. The Carb Guide app allows you to search for foods by name or browse by category, displaying the carbohydrate content for 100 grams of the selected item. You can also check food labels on packaged foods, which typically include the 'Carbohydrates per 100g' value, or use online databases and apps that provide extensive nutritional information for various foods. These methods ensure accurate tracking of carbohydrate content in your meals."
     }
 };
 
