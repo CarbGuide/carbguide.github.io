@@ -3,7 +3,7 @@
 - [Website](https://carbguide.github.io/)
 - [Patron](https://www.patreon.com/carbguide)
 - [YouTube](https://www.youtube.com/@carbguide)
-- [LinkedIn](https://www.linkedin.com)
+- [LinkedIn](https://www.linkedin.com/in/carb-guide-5b2528349/)
 
 ## Description
  Carb Guide is a simple web app that helps people with diabetes convert grams of carbs to carb servings and vice versa. It also provides information about the carb content of various foods. The app is free to use and has no ads or tracking.
@@ -22,6 +22,7 @@ Features of Carb Guide are divided into functional and non-functional requiremen
 - search for food by category
 - change carb serving size
 - change language between English and Slovak
+- save changes to cookies
 
 ### Non-functional
 - responsive design
