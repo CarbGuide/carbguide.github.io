@@ -1,4 +1,7 @@
 # Carb Guide
+
+[<img src="images/logo.png" width="200"/>](images/logo.png)
+
 ### Links
 - [Website](https://carbguide.github.io/)
 - [Patron](https://www.patreon.com/carbguide)
@@ -7,6 +10,8 @@
 
 ## Description
  Carb Guide is a simple web app that helps people with diabetes convert grams of carbs to carb servings and vice versa. It also provides information about the carb content of various foods. The app is free to use and has no ads or tracking.
+
+![screenshot.png](images/screenshot.png)
 
 ## Motivation
 I created Carb Guide to help people with diabetes manage their carb intake. It is very important for people with diabetes to keep track of your carb intake. I wanted to create a simple, easy-to-use tool that would help people with diabetes make better food choices and manage their blood sugar levels.
