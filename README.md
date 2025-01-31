@@ -98,6 +98,7 @@ These are the tools used for writing the source code:
 - Used for creating the multi-language support
 
 ### Promotion
+These are the tools used for promoting the project:
 
 **[Patreon](https://www.patreon.com/)**
 - Membership platform
