@@ -14,7 +14,7 @@
 ![screenshot.png](images/screenshot.png)
 
 ## Motivation
-I created Carb Guide to help people with diabetes manage their carb intake. It is very important for people with diabetes to keep track of your carb intake. I wanted to create a simple, easy-to-use tool that would help people with diabetes make better food choices and manage their blood sugar levels.
+I created Carb Guide to help people with diabetes manage their carb intake. It is very important for people with diabetes to keep track of their carbohydrate intake. I wanted to create a simple, easy-to-use tool that would help people with diabetes make better food choices and manage their blood sugar levels.
 
 ## Features
 Features of Carb Guide are divided into functional and non-functional requirements.
@@ -41,26 +41,95 @@ Features of Carb Guide are divided into functional and non-functional requiremen
 - no tracking
 - open-source
 
-## Design
+## Business Model
+The business model of Carb Guide is based on donations from users. Users can support the project by becoming a patron on Patreon. 
 
+## Technologies
 
-### Technologies
+The app was built with tools shown in the image below. These tools are listed and described in the following sections with their exact usage in the project.
 
-Used technologies are:
+![images/tools.png](images/tools.png)
+
+### Web App Implementation
+The web app was implemented using the following tools:
+
+**[WebStorm](https://www.jetbrains.com/webstorm/)**
+- IDE for web development
+- Created by JetBrains
+- Used for writing code
+
+**[GitHub](https://github.com/)**
+- Version control system
+- Used for storing and sharing code
+- Used for deploying the web app
 
 **[GitHub Pages](https://pages.github.com/)**
 - Free static site hosting
 - Custom domain
+- Used for hosting the web app
+
+**[Image Playground](https://apps.apple.com/us/app/image-playground/id6479176117)**
+- App for creating images from text
+- Used for creating the logo
+
+**[Markdown](https://www.markdownguide.org/)**
+- Lightweight markup language
+- Used for writing documentation
+
+#### Source Code
+These are the tools used for writing the source code:
+
+**[HTML](https://html.spec.whatwg.org/)**
+- For creating the structure of the web app
+- Used for creating the content
+
+**[CSS](https://www.w3.org/Style/CSS/Overview.en.html)**
+- For styling the web app
+- Used for creating the design
 
 **[Bootstrap](https://getbootstrap.com/)**
 - For building design and layout
 - Helps create responsive design
+- Used for creating the layout
 
 **[Javascript](https://www.javascript.com/)**
 - For creating dynamic content
+- Used for creating the functionality
+- Used for creating the multi-language support
+
+### Promotion
+
+**[Patreon](https://www.patreon.com/)**
+- Membership platform
+- Used for financially supporting the project
+
+**[LinkedIn](https://www.linkedin.com/)**
+- Professional networking site
+- Used for promoting the project
+
+**[YouTube](https://www.youtube.com/)**
+- Video sharing platform
+- Used for promoting the project
+
+**[iMovie](https://www.apple.com/imovie/)**
+- Video editing software
+- Used to edit the tutorial video
+- Used to add music to the tutorial video
+
+**[TTSMaker](https://ttsmaker.com)**
+- Text-to-speech website
+- Used to create the voiceover for the tutorial video
+
+### General Tools
+**[ChatGPT](https://www.openai.com/chatgpt)**
+- AI chatbot
+- Created by OpenAI
+- Used to help implement the web
+- Used to create promotional content
+- Used to help with the script for the tutorial video
 
 
-### Structure
+## Architecture
 The app havs simple architecture with 4 files:
 
 - `index.html` - main file with HTML structure
@@ -68,9 +137,9 @@ The app havs simple architecture with 4 files:
 - `script.js` - file with Javascript code
 - `table.csv` - file with food data in CSV format
 
-![images/structure.png](images/structure.png)
+![images/files.png](images/files.png)
 
-### Food Data
+## Food Data
 The food data is stored in a CSV file called `table.csv`. The file contains the following columns:
 
 | id | name_en     | name_sk      | category_en | category_sk | carbsPer100g |
